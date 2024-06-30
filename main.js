@@ -37,18 +37,24 @@ const devotions = {
   }
 };
 
-// console.log(devotions['bible verses'].love[0]);
-// console.log(devotions['bible plans'].love[0]);
-
 const verseAndPlanGenerator = (emotion) => {
   //randomize bible verse from object
   const mood = emotion.toLowerCase();
   if (mood === 'love') {
     let loveVerse = devotions['bible verses'].love[Math.floor(Math.random() * devotions['bible verses'].love.length)];
     let lovePlan = devotions['bible plans'].love[Math.floor(Math.random() * devotions['bible plans'].love.length)];
-    return `${mood.toUpperCase()}:\n ${loveVerse}\nPLAN: \n ${lovePlan}`
-
+    return `${mood.toUpperCase()}:\n ${loveVerse}\nPLAN: \n ${lovePlan}`;
+  } else if(mood === 'hope') {
+    let hopeVerse = devotions['bible verses'].hope[Math.floor(Math.random() * devotions['bible verses'].hope.length)];
+    let hopePlan = devotions['bible plans'].hope[Math.floor(Math.random() * devotions['bible plans'].hope.length)];
+    return `${mood.toUpperCase()}:\n ${hopeVerse}\nPLAN: \n ${hopePlan}`;
+  } else if(mood === 'fear') {
+    let fearVerse = devotions['bible verses'].fear[Math.floor(Math.random() * devotions['bible verses'].fear.length)];
+    let fearPlan = devotions['bible plans'].fear[Math.floor(Math.random() * devotions['bible plans'].fear.length)];
+    return `${mood.toUpperCase()}:\n ${fearVerse}\nPLAN: \n ${fearPlan}`;
+  } else {
+    return 'Please enter a valid mood';
   }
 
 }
-console.log(verseAndPlanGenerator('love'));
+console.log(verseAndPlanGenerator('anxious'));
